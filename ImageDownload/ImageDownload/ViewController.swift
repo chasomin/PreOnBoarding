@@ -1,0 +1,103 @@
+//
+//  ViewController.swift
+//  ImageDownload
+//
+//  Created by 차소민 on 2023/02/27.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var image1: UIImageView!
+    @IBOutlet weak var image2: UIImageView!
+    @IBOutlet weak var image3: UIImageView!
+    @IBOutlet weak var image4: UIImageView!
+    @IBOutlet weak var image5: UIImageView!
+    
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    
+    @IBOutlet weak var loadAllButton: UIButton!
+    
+    let image1URL: String = "data:image/jpeg;base64,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"
+    let image2URL: String = "data:image/jpeg;base64,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"
+    let image3URL: String = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt18wCyQPO-BWMnThSlQ0_D4MJyDp32fJZrQ&usqp=CAU"
+    let image4URL: String = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5U-1YUSsjLtWFFIZ7f98fuxDDJUBoezVGA&usqp=CAU"
+    let image5URL: String = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTUQUwhbNVWqBkiZrMViIFQBg5e8qLgs3kWA&usqp=CAU"
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        setImageAndButton()
+    }
+    
+    @IBAction func button1Tap(_ sender: Any) {
+        let url = URL(string: image1URL)
+        image1.load(url: url!)
+    }
+    
+    @IBAction func button2Tap(_ sender: Any) {
+        let url = URL(string: image2URL)
+        image2.load(url: url!)
+    }
+    
+    @IBAction func button3Tap(_ sender: Any) {
+        let url = URL(string: image3URL)
+        image3.load(url: url!)
+    }
+    
+    @IBAction func button4Tap(_ sender: Any) {
+        let url = URL(string: image4URL)
+        image4.load(url: url!)
+    }
+    
+    @IBAction func button5Tap(_ sender: Any) {
+        let url = URL(string: image5URL)
+        image5.load(url: url!)
+    }
+    
+    @IBAction func allButtonTap(_ sender: Any) {
+        button1Tap(self)
+        button2Tap(self)
+        button3Tap(self)
+        button4Tap(self)
+        button5Tap(self)
+    }
+    
+    func setImageAndButton() {
+        image1.image = UIImage(systemName: "photo")
+        image2.image = UIImage(systemName: "photo")
+        image3.image = UIImage(systemName: "photo")
+        image4.image = UIImage(systemName: "photo")
+        image5.image = UIImage(systemName: "photo")
+
+        button1.setTitle("Load", for: .normal)
+        button2.setTitle("Load", for: .normal)
+        button3.setTitle("Load", for: .normal)
+        button4.setTitle("Load", for: .normal)
+        button5.setTitle("Load", for: .normal)
+
+        loadAllButton.setTitle("Load All Images", for: .normal)
+    }
+
+
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        self.image = UIImage(systemName: "photo")
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}
